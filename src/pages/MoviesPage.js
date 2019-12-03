@@ -52,10 +52,12 @@ export default class MoviesPage extends Component {
   }
 
   setSearchQuery = searchQuery => {
-    this.props.history.push({
-      ...this.props.location,
-      search: `query=${searchQuery}`,
-    });
+    if (searchQuery && this.state.movies.length > 0) {
+      this.props.history.push({
+        ...this.props.location,
+        search: `query=${searchQuery}`,
+      });
+    }
   };
 
   render() {
